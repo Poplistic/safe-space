@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ezekiel & Logan!</title>
+  <title>Ezekiel & Logan’s Safe Space 💞 | Daily Love Challenges</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -278,6 +278,9 @@
         <h3 style="margin-top:14px;">Quote of the Day</h3>
         <p id="quote" style="font-style:italic;"></p>
 
+        <h3 style="margin-top:14px;">Daily Challenge</h3>
+        <div id="dailyChallenge" style="margin-bottom:16px;font-weight:400;color:var(--muted);"></div>
+        
         <h3 style="margin-top:12px;">Our Spotify Playlist</h3>
         <iframe src="https://open.spotify.com/embed/playlist/5YUZZEc6SYVn1JHeUHonhQ?utm_source=generator" height="380" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
@@ -483,6 +486,53 @@
       setTimeout(()=>statusBox.style.boxShadow = 'none', 400);
     }
 
+	// ---------- Daily Challenges ----------
+	const challengeRef = ref(db, "shared/dailyChallenge");
+
+	const challenges = [
+	  "Send each other one voice note describing your favorite moment together.",
+	  "Write a short poem or haiku about how you feel today.",
+	  "Share one photo from your camera roll that makes you smile.",
+	  "Text each other three things you love about the other person.",
+	  "Plan your next date night — even if it’s just a cozy movie at home.",
+	  "Try to compliment each other five times today.",
+	  "Recreate a cute memory by sending a photo or message about it.",
+	  "Watch something together — even if you’re apart.",
+	  "Draw or doodle something that reminds you of the other person.",
+	  "Say one thing you’re grateful for about your relationship."
+	];
+
+	const challengeDiv = document.getElementById("dailyChallenge");
+
+	function getChallengeForDate(dateStr) {
+	  // use a hash of the date to consistently pick one
+	  const daySeed = [...dateStr].reduce((a, c) => a + c.charCodeAt(0), 0);
+	  return challenges[daySeed % challenges.length];
+	}
+
+	// check once per day
+	function updateDailyChallenge() {
+	  const todayStr = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+	  onValue(challengeRef, async (snap) => {
+		const data = snap.val();
+		if (!data || data.date !== todayStr) {
+		  // generate and store a new challenge for today
+		  const newChallenge = getChallengeForDate(todayStr);
+		  await set(challengeRef, { date: todayStr, text: newChallenge });
+		  challengeDiv.textContent = newChallenge;
+		} else {
+		  // already exists for today
+		  challengeDiv.textContent = data.text;
+		}
+	  });
+	}
+
+	updateDailyChallenge();
+
+	// optional: refresh automatically if day changes without reload
+	setInterval(updateDailyChallenge, 1000 * 60 * 60); // every hour
+
     // ---------- Quotes ----------
     const quotes=[
       "Love is not perfect, it just feels right when it's real.",
@@ -590,3 +640,4 @@
   </script>
 </body>
 </html>
+
