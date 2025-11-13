@@ -7,7 +7,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-    :root{
+    :root {
       --glass-bg: rgba(18,18,20,0.44);
       --accent: #e07a9a;
       --text-soft: #f6eef0;
@@ -16,9 +16,13 @@
       --glow: 0 6px 30px rgba(255,255,255,0.06);
     }
 
-    html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:#101018;color:var(--text-soft);}
-    .page {position:relative;min-height:100vh;overflow:hidden;}
+    html,body {
+      height:100%;margin:0;
+      font-family:'Poppins',sans-serif;
+      background:#101018;color:var(--text-soft);
+    }
 
+    .page {position:relative;min-height:100vh;overflow:hidden;}
     .bg-layer {position:absolute;inset:0;z-index:0;transition:opacity 900ms ease;
       background:linear-gradient(90deg,#f48fb1 0%,#64b5f6 100%);
       filter:saturate(0.92) contrast(0.95) brightness(0.88);}
@@ -26,145 +30,63 @@
       background:radial-gradient(1200px 600px at 20% 30%,rgba(255,255,255,0.02),transparent 15%),
                  radial-gradient(900px 600px at 80% 70%,rgba(255,255,255,0.01),transparent 12%);
       animation:breathe 8s ease-in-out infinite;mix-blend-mode:overlay;}
-    @keyframes breathe {0%{opacity:.92;transform:scale(1);}50%{opacity:.98;transform:scale(1.01);}100%{opacity:.92;transform:scale(1);}}
+    @keyframes breathe {0%{opacity:.92;}50%{opacity:.98;}100%{opacity:.92;}}
 
     .content {position:relative;z-index:5;padding:48px 20px;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;box-sizing:border-box;}
     .glass {width:100%;max-width:760px;margin:48px auto;background:var(--glass-bg);
       border-radius:18px;padding:28px;box-shadow:var(--card-shadow);backdrop-filter:blur(10px) saturate(0.9);
-      -webkit-backdrop-filter:blur(10px) saturate(0.9);border:1px solid rgba(255,255,255,0.04);
-      color:var(--text-soft);text-align:center;}
+      border:1px solid rgba(255,255,255,0.04);color:var(--text-soft);text-align:center;}
 
     h1,h2,h3,h4,p,label,button{ text-shadow: var(--glow); }
 
-    h1{margin:6px 0 12px;font-weight:600;letter-spacing:0.6px}
+    h1{margin:6px 0 12px;font-weight:600;}
     p { margin:8px 0; color:var(--muted); font-weight:300; }
 
     .login-row { display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:8px; }
     input[type="password"]{
       padding:12px 14px;border-radius:12px;border:none;outline:none;font-size:16px;width:260px;
       background:rgba(255,255,255,0.03);color:var(--text-soft);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);
     }
-
     button {
       padding:10px 18px;border-radius:12px;border:none;background:linear-gradient(180deg,var(--accent),#d86d8f);
-      color:white;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(200,80,120,0.12);
-      transition: transform 160ms ease, box-shadow 160ms ease;
+      color:white;font-weight:600;cursor:pointer;
     }
-    button:hover{ transform: translateY(-3px); box-shadow:0 12px 36px rgba(200,80,120,0.12); }
-
     .color-section { margin-top:18px; border-top:1px solid rgba(255,255,255,0.03); padding-top:18px; display:grid; gap:12px; }
-    .pair {
-      display:flex;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-    .pair .label { text-align:left; font-weight:600; color:var(--text-soft); width:160px; }
-
-    .swatch { width:44px;height:28px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);box-shadow:inset 0 1px 0 rgba(255,255,255,0.02); }
-
+    .pair { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+    .pair .label { text-align:left; font-weight:600; width:160px; }
+    .swatch { width:44px;height:28px;border-radius:8px;border:1px solid rgba(255,255,255,0.06); }
     .hint { font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px; }
-    iframe { border-radius:12px; margin-top:10px; width:100%; max-width:500px; border:0; }
-    footer { margin-top:16px; font-size:13px; color:rgba(255,255,255,0.6); }
 
-    .reveal { animation: revealIn 700ms cubic-bezier(.2,.9,.2,1) both; }
-    @keyframes revealIn {from{opacity:0;transform:translateY(18px) scale(.995);}to{opacity:1;transform:translateY(0) scale(1);}}
+    /* Dropdowns */
+    .dropdown { position:relative; display:inline-block; width:220px; }
+    .dropdown-button { width:100%; background:rgba(255,255,255,0.03); border-radius:12px;
+      padding:12px 40px 12px 14px; color:var(--text-soft); cursor:pointer; text-align:left; font-size:15px; position:relative; }
+    .dropdown-button::after { content:'▾'; position:absolute; right:14px; top:50%; transform:translateY(-50%); color:var(--muted);}
+    .dropdown-list { position:absolute; top:calc(100% + 6px); left:0; right:0; background:rgba(18,18,20,0.9);
+      border-radius:14px; display:none; flex-direction:column; z-index:10;}
+    .dropdown-list.show {display:flex;}
+    .dropdown-option { padding:10px 14px; font-size:15px; color:var(--text-soft); cursor:pointer;}
+    .dropdown-option:hover { background:rgba(255,255,255,0.07); color:var(--accent); }
 
-    /* ----------- Custom Glass Dropdowns ----------- */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      width: 220px;
-      font-family: 'Poppins', sans-serif;
+    /* Connection indicator */
+    #statusLight {
+      position:fixed;bottom:14px;right:14px;
+      display:flex;align-items:center;gap:6px;
+      font-size:13px;color:var(--muted);
     }
-
-    .dropdown-button {
-      width: 100%;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 12px 40px 12px 14px;
-      color: var(--text-soft);
-      cursor: pointer;
-      text-align: left;
-      font-size: 15px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
-      transition: all 0.25s ease;
-      position: relative;
+    #statusLight span {
+      display:inline-block;width:10px;height:10px;border-radius:50%;
+      background:#666;
     }
-
-    .dropdown-button::after {
-      content: '▾';
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      transition: color 0.25s ease;
-    }
-
-    .dropdown-button:hover {
-      background: rgba(255,255,255,0.06);
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.06);
-    }
-
-    .dropdown-button:hover::after {
-      color: var(--accent);
-    }
-
-    .dropdown-list {
-      position: absolute;
-      top: calc(100% + 6px);
-      left: 0;
-      right: 0;
-      background: rgba(18,18,20,0.9);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-      backdrop-filter: blur(12px) saturate(0.9);
-      -webkit-backdrop-filter: blur(12px) saturate(0.9);
-      display: none;
-      flex-direction: column;
-      z-index: 10;
-      overflow: hidden;
-      animation: dropdownFade 0.2s ease forwards;
-    }
-
-    @keyframes dropdownFade {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .dropdown-list.show { display: flex; }
-
-    .dropdown-option {
-      padding: 10px 14px;
-      font-size: 15px;
-      color: var(--text-soft);
-      cursor: pointer;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .dropdown-option:hover {
-      background: rgba(255,255,255,0.07);
-      color: var(--accent);
-    }
-
-    @media (max-width:720px){
-      .glass{margin:24px 16px;padding:20px;}
-      .pair{flex-direction:column;align-items:flex-start;}
-      .pair .label{width:100%;}
-      .dropdown{width:100%;}
-    }
+    #statusLight.connected span { background:#81c784; }
+    #statusLight.disconnected span { background:#e57373; }
   </style>
 </head>
 <body>
   <div class="page">
-    <div id="bg-main" class="bg-layer" style="opacity:1;"></div>
+    <div id="bg-main" class="bg-layer"></div>
     <div id="bg-top" class="bg-layer" style="opacity:0;"></div>
-    <div class="bg-breathe" aria-hidden="true"></div>
+    <div class="bg-breathe"></div>
 
     <main class="content">
       <section class="glass" id="loginCard">
@@ -172,20 +94,20 @@
         <p>Enter the secret password to enter:</p>
         <div class="login-row">
           <input id="passwordInput" type="password" placeholder="Password" onkeypress="if(event.key==='Enter') checkPassword()" />
-          <button id="enterBtn" onclick="checkPassword()">Enter</button>
+          <button onclick="checkPassword()">Enter</button>
         </div>
       </section>
 
-      <section class="glass reveal" id="mainContent" style="display:none;">
+      <section class="glass" id="mainContent" style="display:none;">
         <h1>Ezekiel & Logan!</h1>
         <p><strong>Anniversary:</strong> November 2, 2025</p>
-        <p id="countdown" style="margin-top:6px;"></p>
+        <p id="countdown"></p>
 
-        <div class="color-section" aria-label="Colors">
-          <h3 style="margin:6px 0 4px;">Our Colors!</h3>
+        <div class="color-section">
+          <h3>Our Colors!</h3>
 
           <div class="pair">
-            <div style="display:flex;align-items:center;gap:10px;">
+            <div>
               <div class="label">💗 Logan — left side</div>
               <div class="dropdown" data-person="logan">
                 <div class="dropdown-button">— choose —</div>
@@ -203,13 +125,11 @@
                 </div>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <div id="loganSwatch" class="swatch"></div>
-            </div>
+            <div><div id="loganSwatch" class="swatch"></div></div>
           </div>
 
-          <div class="pair" style="margin-top:6px;">
-            <div style="display:flex;align-items:center;gap:10px;">
+          <div class="pair">
+            <div>
               <div class="label">💙 Ezekiel — right side</div>
               <div class="dropdown" data-person="ezekiel">
                 <div class="dropdown-button">— choose —</div>
@@ -227,148 +147,105 @@
                 </div>
               </div>
             </div>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <div id="ezekielSwatch" class="swatch"></div>
-            </div>
+            <div><div id="ezekielSwatch" class="swatch"></div></div>
           </div>
-
-          <div class="hint">Your choices are saved automatically and affect your side of the background.</div>
         </div>
 
-        <h3 style="margin-top:14px;">Quote of the Day</h3>
-        <p id="quote" style="font-style:italic;"></p>
+        <div class="hint">Your choices sync automatically 💞</div>
 
-        <h3 style="margin-top:12px;">Our Spotify Playlist</h3>
-        <iframe src="https://open.spotify.com/embed/playlist/5YUZZEc6SYVn1JHeUHonhQ?utm_source=generator" height="380" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-        <footer>Made with Logan</footer>
+        <footer style="margin-top:20px;font-size:13px;">Positive Thoughts!</footer>
       </section>
     </main>
   </div>
 
-  <script>
-    const colorPresets = {
-      red: "#ff4b5c",
-      orange: "#ffb347",
-      yellow: "#fff176",
-      green: "#81c784",
-      lightblue: "#80d8ff",
-      blue: "#64b5f6",
-      purple: "#ba68c8",
-      pink: "#f48fb1",
-      white: "#ffffff",
-      brown: "#a1887f"
+  <div id="statusLight" class="disconnected"><span></span>Disconnected</div>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getDatabase, ref, set, onValue, onDisconnect } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAPR-TAnTSg7D2dkVjBU8SPBtTEtiztcsI",
+      authDomain: "ezekiellogancolors.firebaseapp.com",
+      projectId: "ezekiellogancolors",
+      storageBucket: "ezekiellogancolors.firebasestorage.app",
+      messagingSenderId: "343759103076",
+      appId: "1:343759103076:web:97aeb014daffc57292eb71",
+      measurementId: "G-3Y3L96K98Q",
+      databaseURL: "https://ezekiellogancolors-default-rtdb.firebaseio.com"
     };
 
-    const DEFAULT_LOGAN = "#f48fb1";
-    const DEFAULT_EZEKIEL = "#283c6b";
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-    const bgMain = document.getElementById('bg-main');
-    const bgTop  = document.getElementById('bg-top');
-
-    function setMainGradient(left, right){
-      bgMain.style.background = `linear-gradient(90deg, ${left} 0%, ${right} 100%)`;
-    }
-
-    function crossfadeGradient(newLeft, newRight){
-      bgTop.style.background = `linear-gradient(90deg, ${newLeft} 0%, ${newRight} 100%)`;
-      bgTop.style.opacity = 0; void bgTop.offsetWidth;
-      bgTop.style.transition = 'opacity 900ms cubic-bezier(.2,.9,.2,1)';
-      bgTop.style.opacity = 1;
-      setTimeout(() => {
-        setMainGradient(newLeft, newRight);
-        bgTop.style.transition = 'none';
-        bgTop.style.opacity = 0;
-      }, 920);
-    }
-
-    function applySavedColors(useCrossfade = true){
-      const left = localStorage.getItem('loganColor') || DEFAULT_LOGAN;
-      const right = localStorage.getItem('ezekielColor') || DEFAULT_EZEKIEL;
-      useCrossfade ? crossfadeGradient(left,right) : setMainGradient(left,right);
-      updateSwatches(left,right);
-    }
-
-    function updateSwatches(left,right){
-      document.getElementById('loganSwatch').style.background = left;
-      document.getElementById('ezekielSwatch').style.background = right;
-    }
-
-    const PASSWORD = "ilysm!";
-    function checkPassword(){
-      if(document.getElementById('passwordInput').value===PASSWORD){
-        loginCard.style.display='none';
-        mainContent.style.display='block';
-        window.scrollTo({top:0,behavior:'smooth'});
+    const status = document.getElementById("statusLight");
+    function setStatus(connected){
+      if(connected){
+        status.className = "connected";
+        status.innerHTML = "<span></span>Connected";
       }else{
-        loginCard.animate([{transform:'translateX(0)'},{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'translateX(0)'}],{duration:420,easing:'ease'});
-        setTimeout(()=>alert('Incorrect password 💔'),250);
+        status.className = "disconnected";
+        status.innerHTML = "<span></span>Disconnected";
       }
     }
 
-    const quotes=[
-      "Love is not perfect, it just feels right when it's real.",
-      "You're my today and all of my tomorrows.",
-      "Every love story is special, but ours is my favorite.",
-      "I still fall for you every single day.",
-      "With you, I am home."
-    ];
-    document.getElementById('quote').innerText = quotes[Math.floor(Math.random()*quotes.length)];
+    const colorPresets = {
+      red:"#ff4b5c",orange:"#ffb347",yellow:"#fff176",green:"#81c784",lightblue:"#80d8ff",
+      blue:"#64b5f6",purple:"#ba68c8",pink:"#f48fb1",white:"#ffffff",brown:"#a1887f"
+    };
+    const DEFAULT_LOGAN="#f48fb1",DEFAULT_EZEKIEL="#283c6b";
 
-    function updateCountdown(){
-      const anniversary = new Date("2025-11-02T00:00:00");
-      const now = new Date();
-      const diff = now - anniversary;
-      const days = Math.floor(diff / (1000*60*60*24));
-      document.getElementById('countdown').innerText =
-        days >= 0 ? `💞 Together for ${days} days 💞` : `💞 ${Math.abs(days)} days until our anniversary 💞`;
+    const bgMain=document.getElementById('bg-main'), bgTop=document.getElementById('bg-top');
+    const setMainGradient=(l,r)=>bgMain.style.background=`linear-gradient(90deg,${l} 0%,${r} 100%)`;
+    const crossfadeGradient=(l,r)=>{bgTop.style.background=`linear-gradient(90deg,${l} 0%,${r} 100%)`;
+      bgTop.style.opacity=1;setTimeout(()=>{setMainGradient(l,r);bgTop.style.opacity=0;},800);};
+    const applyColors=(l,r)=>crossfadeGradient(l,r);
+
+    // sync updates
+    function listenForUpdates(){
+      onValue(ref(db,'logan'),snap=>{
+        const data=snap.val(); if(data){document.getElementById('loganSwatch').style.background=data.color; applyColors(data.color,localStorage.getItem('ezekielColor')||DEFAULT_EZEKIEL);}
+      });
+      onValue(ref(db,'ezekiel'),snap=>{
+        const data=snap.val(); if(data){document.getElementById('ezekielSwatch').style.background=data.color; applyColors(localStorage.getItem('loganColor')||DEFAULT_LOGAN,data.color);}
+      });
     }
-    updateCountdown(); setInterval(updateCountdown,60000);
+    listenForUpdates();
 
-    // ------- Custom Dropdown Handling -------
+    // dropdown logic
     document.querySelectorAll('.dropdown').forEach(drop=>{
       const button=drop.querySelector('.dropdown-button');
       const list=drop.querySelector('.dropdown-list');
       const person=drop.dataset.person;
 
       button.addEventListener('click',e=>{
-        e.stopPropagation();
-        document.querySelectorAll('.dropdown-list').forEach(l=>l!==list&&l.classList.remove('show'));
+        e.stopPropagation();document.querySelectorAll('.dropdown-list').forEach(l=>l!==list&&l.classList.remove('show'));
         list.classList.toggle('show');
       });
 
       list.querySelectorAll('.dropdown-option').forEach(opt=>{
         opt.addEventListener('click',()=>{
-          const value=opt.dataset.value;
-          const label=opt.textContent;
-          button.textContent=label;
+          const color=colorPresets[opt.dataset.value];
+          set(ref(db,person),{color});
           list.classList.remove('show');
-          const color=colorPresets[value];
-          if(person==='logan'){
-            localStorage.setItem('loganColor',color);
-            localStorage.setItem('loganPreset',value);
-          }else{
-            localStorage.setItem('ezekielColor',color);
-            localStorage.setItem('ezekielPreset',value);
-          }
-          applySavedColors();
         });
       });
     });
+    document.addEventListener('click',()=>document.querySelectorAll('.dropdown-list').forEach(l=>l.classList.remove('show')));
 
-    window.addEventListener('click',()=>document.querySelectorAll('.dropdown-list').forEach(l=>l.classList.remove('show')));
+    // simple connected indicator
+    import { ref as dbRef, onValue as dbOnValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+    const connRef=dbRef(db,'.info/connected');
+    dbOnValue(connRef,snap=>setStatus(!!snap.val()));
 
-    window.addEventListener('load',()=>{
-      const lPreset=localStorage.getItem('loganPreset');
-      const ePreset=localStorage.getItem('ezekielPreset');
-      if(lPreset) document.querySelector('[data-person="logan"] .dropdown-button').textContent =
-        document.querySelector(`[data-person="logan"] [data-value="${lPreset}"]`).textContent;
-      if(ePreset) document.querySelector('[data-person="ezekiel"] .dropdown-button').textContent =
-        document.querySelector(`[data-person="ezekiel"] [data-value="${ePreset}"]`).textContent;
-      applySavedColors(false);
-    });
+    const PASSWORD="ilysm!";
+    window.checkPassword=function(){
+      if(document.getElementById('passwordInput').value===PASSWORD){
+        document.getElementById('loginCard').style.display='none';
+        document.getElementById('mainContent').style.display='block';
+      }else alert("Incorrect password 💔");
+    };
   </script>
 </body>
 </html>
-
-
