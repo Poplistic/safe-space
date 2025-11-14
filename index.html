@@ -65,7 +65,6 @@
   <div class="page">
     <div id="bg-main" class="bg-layer"></div>
     <div class="bg-breathe" aria-hidden="true"></div>
-
     <main class="content">
       <section class="glass" id="loginCard">
         <h2>Welcome — Safe Space</h2>
@@ -79,7 +78,6 @@
         </div>
         <p class="small">After entering the password you'll pick either <strong>Logan</strong> or <strong>Ezekiel</strong>.</p>
       </section>
-
       <section class="glass reveal hidden" id="mainContent">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
           <div>
@@ -91,16 +89,13 @@
             <button id="logoutBtn" style="background:rgba(255,255,255,0.05);padding:6px 10px;border-radius:10px;font-size:14px;">Logout</button>
           </div>
         </div>
-
         <div class="tabs" role="tablist" aria-label="Main navigation">
           <div class="tab active" data-tab="dashboard">Dashboard</div>
           <div class="tab" data-tab="chat">Chat</div>
-          <div class="tab" data-tab="gallery">Memory Gallery</div>
           <div class="tab" data-tab="memories">Memory Bank</div>
           <div class="tab" data-tab="profile">Profile</div>
           <div class="tab" data-tab="quotes">Quotes & Challenges</div>
         </div>
-
         <div class="grid" style="margin-top:12px;">
           <!-- MAIN COLUMN -->
           <div>
@@ -114,7 +109,6 @@
                     <div id="leftEmotion" class="small"></div>
                   </div>
                 </div>
-
                 <div style="display:flex;gap:12px;align-items:center;">
                   <div>
                     <div id="rightName" style="font-weight:600;text-align:right">—</div>
@@ -123,48 +117,31 @@
                   </div>
                 </div>
               </div>
-
               <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;">
                 <button id="openNoteBtn">★ Shared Note</button>
-                <button id="openUploadMemoryBtn" style="background:rgba(255,255,255,0.03);color:var(--text-soft);border:1px solid rgba(255,255,255,0.04);">Upload Memory</button>
                 <button id="openNewMemoryBtn" style="background:rgba(255,255,255,0.03);color:var(--text-soft);border:1px solid rgba(255,255,255,0.04);">Add Text Memory</button>
               </div>
-
               <div style="margin-top:12px;">
                 <h3 style="margin:6px 0">Quote of the Day</h3>
                 <p id="quote" style="font-style:italic;"></p>
-
                 <h3 style="margin-top:12px;">Daily Challenge</h3>
                 <div id="dailyChallenge" style="margin-bottom:6px;font-weight:400;color:var(--muted);"></div>
               </div>
             </div>
-
             <!-- CHAT -->
             <div id="tab-chat" class="panel tabPanel hidden">
               <h3 style="margin:6px 0 10px 0;">Chat</h3>
               <div class="chat-window" id="chatWindow" aria-live="polite"></div>
               <div class="typing" id="typingStatus"></div>
-
               <div class="controls">
                 <input id="chatInput" type="text" placeholder="Type a message..." style="flex:1;">
                 <input id="chatImageInput" type="file" accept="image/*" class="hidden">
                 <button id="pickImageBtn" title="Attach image">🖼️</button>
-
                 <button id="recordBtn" title="Record voice message">🎙️</button>
                 <button id="sendBtn">Send</button>
               </div>
               <div id="recIndicator" class="small hidden">Recording… <button id="stopRecBtn">Stop</button></div>
             </div>
-
-            <!-- GALLERY -->
-            <div id="tab-gallery" class="panel tabPanel hidden">
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <h3 style="margin:6px 0">Memory Gallery</h3>
-                <div class="small">Click an image to open</div>
-              </div>
-              <div id="galleryGrid" class="gallery" style="margin-top:10px;"></div>
-            </div>
-
             <!-- MEMORY BANK -->
             <div id="tab-memories" class="panel tabPanel hidden">
               <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -173,7 +150,6 @@
               </div>
               <div id="memoriesList" style="margin-top:10px"></div>
             </div>
-
             <!-- PROFILE -->
             <div id="tab-profile" class="panel tabPanel hidden">
               <h3 style="margin:6px 0">Profile & Preferences</h3>
@@ -185,14 +161,12 @@
                   </div>
                 </div>
               </div>
-
               <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
                 <div>
                   <label class="small">Set Pet Name For Them</label><br>
                   <input id="petNameInput" placeholder="Sweetheart">
                   <button id="savePetBtn">Save</button>
                 </div>
-
                 <div>
                   <label class="small">Set Emotion / Mood</label><br>
                   <select id="emotionSelect">
@@ -212,7 +186,6 @@
                     <option value="desperate">Desperate</option>
                   </select>
                 </div>
-
                 <div>
                   <label class="small">Choose Local Display Name</label><br>
                   <input id="localNameInput" placeholder="Logan or Ezekiel">
@@ -220,7 +193,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Quotes & Challenges -->
             <div id="tab-quotes" class="panel tabPanel hidden">
               <h3 style="margin:6px 0">Quotes & Challenges</h3>
@@ -229,9 +201,7 @@
                 <button id="addQuoteBtn">Add Quote</button>
               </div>
               <div id="quotesList" style="margin-top:8px"></div>
-
               <hr style="margin:10px 0;border-color:rgba(255,255,255,0.03)">
-
               <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
                 <input id="newChallengeInput" placeholder="Add a new challenge" style="flex:1">
                 <button id="addChallengeBtn">Add Challenge</button>
@@ -239,7 +209,6 @@
               <div id="challengesList" style="margin-top:8px"></div>
             </div>
           </div>
-
           <!-- RIGHT COLUMN -->
           <div>
             <div class="panel">
@@ -249,16 +218,7 @@
                   <div class="small" id="meSub">Your space</div>
                 </div>
               </div>
-
               <div style="margin-top:12px;">
-                <div style="display:flex;gap:8px;align-items:center;justify-content:space-between;">
-                  <div>
-                    <div class="small">Status</div>
-                    <div id="statusText" class="small">Connecting…</div>
-                  </div>
-                  <div id="statusDot" style="width:12px;height:12px;border-radius:50%;background:#b94a4a;box-shadow:0 0 8px rgba(185,74,74,0.16);"></div>
-                </div>
-
                 <div style="margin-top:12px;">
                   <h4 style="margin:6px 0">Colors</h4>
                   <div style="display:flex;gap:8px;align-items:center;">
@@ -270,7 +230,6 @@
                 </div>
               </div>
             </div>
-
             <div class="panel" style="margin-top:12px;">
               <div style="display:flex;justify-content:space-between;align-items:center;">
                 <h4 style="margin:6px 0">Shared Note</h4>
@@ -278,24 +237,22 @@
               </div>
               <div id="notePreview" style="color:var(--muted);min-height:44px;margin-top:6px">(No shared note yet — click Open)</div>
             </div>
-
             <div class="panel" style="margin-top:12px;">
               <h4 style="margin:6px 0">Quick Controls</h4>
               <div style="display:flex;flex-direction:column;gap:8px;">
                 <button id="goToChat" style="background:rgba(255,255,255,0.03)">Open Chat</button>
-                <button id="goToGallery" style="background:rgba(255,255,255,0.03)">Open Gallery</button>
                 <button id="goToProfile" style="background:rgba(255,255,255,0.03)">Profile</button>
+                <button id="bedBtn" class="hidden" style="background:rgba(255,255,255,0.03)">Bed (2 clicks)</button>
+                <button id="kneesBtn" class="hidden" style="background:rgba(255,255,255,0.03)">On Knees (3 clicks)</button>
+                <button id="puppyBtn" class="hidden" style="background:rgba(255,255,255,0.03)">Puppy (5 clicks)</button>
               </div>
             </div>
-
           </div>
         </div>
-
         <footer>Safe Space — built for you two ♥</footer>
       </section>
     </main>
   </div>
-
   <!-- Shared Note Modal -->
   <div id="modalBackdrop" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center;">
     <div style="width:min(760px,94%);background:rgba(10,10,12,0.97);border-radius:12px;padding:14px;box-shadow:0 12px 40px rgba(0,0,0,0.6);color:var(--text-soft);">
@@ -308,23 +265,19 @@
       <div style="margin-top:8px;font-size:13px;color:var(--muted)">Saved automatically while you type (debounced).</div>
     </div>
   </div>
-
   <!-- Image Lightbox -->
   <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:12000;align-items:center;justify-content:center;padding:20px;">
     <div style="max-width:92%;max-height:92%;"><img id="lightboxImg" src="" style="max-width:100%;max-height:100%;border-radius:12px;display:block"></div>
   </div>
-
   <div id="status" style="position:fixed;bottom:14px;right:14px;display:flex;gap:8px;align-items:center;z-index:9999;color:var(--muted);background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);">
     <div id="statusDotSmall" style="width:10px;height:10px;border-radius:50%;background:#b94a4a;"></div>
     <div id="statusTextSmall">Connecting...</div>
   </div>
-
   <script type="module">
     // Firebase imports (Realtime DB + Storage)
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
     import { getDatabase, ref, set, onValue, push, update, remove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
     import { getStorage, ref as sref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
-
     const firebaseConfig = {
       apiKey: "AIzaSyAPR-TAnTSg7D2dkVjBU8SPBtTEtiztcsI",
       authDomain: "ezekiellogancolors.firebaseapp.com",
@@ -334,11 +287,9 @@
       messagingSenderId: "162262132243",
       appId: "1:162262132243:web:3c69771b68c9dc702b452b"
     };
-
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const storage = getStorage(app);
-
     // ELEMENTS
     const passwordInput = document.getElementById("passwordInput");
     const enterBtn = document.getElementById("enterBtn");
@@ -346,14 +297,12 @@
     const mainContent = document.getElementById("mainContent");
     const rememberMe = document.getElementById("rememberMe");
     const logoutBtn = document.getElementById("logoutBtn");
-
     const bgMain = document.getElementById("bg-main");
     const loganSwatch = document.getElementById("loganSwatch");
     const ezekielSwatch = document.getElementById("ezekielSwatch");
     const quoteEl = document.getElementById("quote");
     const challengeEl = document.getElementById("dailyChallenge");
     const countdownEl = document.getElementById("countdown");
-
     const notePreview = document.getElementById("notePreview");
     const openNoteBtn = document.getElementById("openNoteBtn");
     const openNoteBtn2 = document.getElementById("openNoteBtn2");
@@ -361,32 +310,24 @@
     const textarea = document.getElementById("sharedNoteTextarea");
     const closeNoteBtn = document.getElementById("closeNoteBtn");
     const saveNoteBtn = document.getElementById("saveNoteBtn");
-
     const statusEl = document.getElementById("status");
     const statusText = document.getElementById("statusTextSmall");
     const statusDot = document.getElementById("statusDotSmall");
-
     const tabs = document.querySelectorAll(".tab");
     const tabPanels = document.querySelectorAll(".tabPanel");
-
     const userBadge = document.getElementById("userBadge");
     const meGreeting = document.getElementById("meGreeting");
     const meAvatarSmall = document.getElementById("meAvatarSmall");
-
     // Profile inputs
     const petNameInput = document.getElementById("petNameInput");
     const savePetBtn = document.getElementById("savePetBtn");
     const emotionSelect = document.getElementById("emotionSelect");
     const localNameInput = document.getElementById("localNameInput");
     const saveLocalNameBtn = document.getElementById("saveLocalNameBtn");
-
     // Other UI
-    const openUploadMemoryBtn = document.getElementById("openUploadMemoryBtn");
     const openNewMemoryBtn = document.getElementById("openNewMemoryBtn");
-    const galleryGrid = document.getElementById("galleryGrid");
     const memoriesList = document.getElementById("memoriesList");
     const addMemoryBtn = document.getElementById("addMemoryBtn");
-
     // Quotes & challenges
     const newQuoteInput = document.getElementById("newQuoteInput");
     const addQuoteBtn = document.getElementById("addQuoteBtn");
@@ -394,7 +335,6 @@
     const newChallengeInput = document.getElementById("newChallengeInput");
     const addChallengeBtn = document.getElementById("addChallengeBtn");
     const challengesList = document.getElementById("challengesList");
-
     // Chat
     const chatWindow = document.getElementById("chatWindow");
     const chatInput = document.getElementById("chatInput");
@@ -405,7 +345,6 @@
     const recIndicator = document.getElementById("recIndicator");
     const stopRecBtn = document.getElementById("stopRecBtn");
     const typingStatus = document.getElementById("typingStatus");
-
     // avatars and dashboard
     const leftName = document.getElementById("leftName");
     const leftPet = document.getElementById("leftPet");
@@ -416,11 +355,13 @@
     const meGreetingEl = document.getElementById("meGreeting");
     const displayNameEl = document.getElementById("displayName");
     const myPetPreview = document.getElementById("myPetPreview");
-
     // Lightbox
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightboxImg");
-
+    // Dog clicker buttons
+    const bedBtn = document.getElementById("bedBtn");
+    const kneesBtn = document.getElementById("kneesBtn");
+    const puppyBtn = document.getElementById("puppyBtn");
     // constants & mappings
     const PASSWORD = "Z+L-Forever";
     const USERS = ["logan", "ezekiel"];
@@ -439,14 +380,13 @@
       attention: { hex: "#64b5f6", label: "Attention", emoji: "👀" },
       desperate: { hex: "#ba68c8", label: "Desperate", emoji: "💫" }
     };
-
     // local app state
     let me = null; // "logan" or "ezekiel"
     let myDisplayName = "";
     let mediaRecorder = null;
     let recordedChunks = [];
     let typingTimer = null;
-
+    let lastClickTs = 0;
     // SIMPLE NAV
     tabs.forEach(t => t.addEventListener("click", () => {
       tabs.forEach(x => x.classList.remove("active"));
@@ -457,15 +397,11 @@
       // autofocus for chat input
       if (which === "chat") chatInput.focus();
     }));
-
     // small nav shortcuts
     document.getElementById("goToChat").addEventListener("click", () => document.querySelector('.tab[data-tab="chat"]').click());
-    document.getElementById("goToGallery").addEventListener("click", () => document.querySelector('.tab[data-tab="gallery"]').click());
     document.getElementById("goToProfile").addEventListener("click", () => document.querySelector('.tab[data-tab="profile"]').click());
-
     // LIGHTBOX
     lightbox.addEventListener("click", () => lightbox.style.display = "none");
-
     // AUTH (simple password + pick identity)
     window.addEventListener("load", () => {
       if (localStorage.getItem("rememberZL") === "true" && localStorage.getItem("zlUser")) {
@@ -474,7 +410,6 @@
         showMain();
       }
     });
-
     enterBtn.addEventListener("click", async () => {
       const entered = passwordInput.value.trim();
       if (entered === PASSWORD) {
@@ -497,14 +432,12 @@
         alert("Wrong password! 💔 Try again.");
       }
     });
-
     logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("rememberZL");
       localStorage.removeItem("zlUser");
       localStorage.removeItem("zlDisplayName");
       location.reload();
     });
-
     function showMain() {
       loginCard.style.display = "none";
       mainContent.classList.remove("hidden");
@@ -514,8 +447,8 @@
       updateCountdown();
       statusConnected();
       displayLocalBasics();
+      initClicker();
     }
-
     // STATUS
     function statusConnected() {
       statusText.textContent = "Connected";
@@ -523,14 +456,12 @@
       document.getElementById("statusTextSmall").textContent = "Connected";
       document.getElementById("statusDotSmall").style.background = "#5fbf6b";
     }
-
     // Basic UI display
     function displayLocalBasics() {
       userBadge.textContent = `${me ? me.charAt(0).toUpperCase() + me.slice(1) : ""}`;
       meGreeting.innerText = `Hi ${myDisplayName || (me && me.charAt(0).toUpperCase()+me.slice(1))}!`;
       displayNameEl.textContent = myDisplayName || (me && me.charAt(0).toUpperCase()+me.slice(1));
     }
-
     // COUNTDOWN
     function updateCountdown() {
       const now = new Date();
@@ -541,7 +472,6 @@
       const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
       countdownEl.textContent = `${days} day${days !== 1 ? "s" : ""} until our anniversary 💞`;
     }
-
     // FIREBASE SYNC: colors, avatars, notes, gallery, memories, chat, quotes, challenges
     function initFirebaseSync() {
       // Colors & basic profile
@@ -564,32 +494,22 @@
         const ezHex = data.ezekiel?.emotion ? (EMOTION_MAP[data.ezekiel.emotion]?.hex || "#64b5f6") : "#64b5f6";
         bgMain.style.background = `linear-gradient(90deg, ${logHex} 0%, ${ezHex} 100%)`;
       });
-
       // Shared note
       onValue(ref(db, "sharedNote"), (snap) => {
         const note = snap.val() || "";
         textarea.value = note;
         notePreview.textContent = note ? note : "(No shared note yet — click the ★ to add)";
       });
-
-      // Gallery
-      onValue(ref(db, "gallery"), (snap) => {
-        const items = snap.val() || {};
-        renderGallery(items);
-      });
-
       // Memories
       onValue(ref(db, "memories"), (snap) => {
         const items = snap.val() || {};
         renderMemories(items);
       });
-
       // chat messages
       onValue(ref(db, "chat/messages"), (snap) => {
         const msgs = snap.val() || {};
         renderChat(msgs);
       });
-
       // typing status
       onValue(ref(db, "chat/typing"), (snap) => {
         const typing = snap.val() || {};
@@ -597,7 +517,6 @@
         if (typing[other]) typingStatus.textContent = `${other.charAt(0).toUpperCase()+other.slice(1)} is typing…`;
         else typingStatus.textContent = "";
       });
-
       // quotes and challenges
       onValue(ref(db, "quotes"), (snap) => {
         const q = snap.val() || {};
@@ -607,8 +526,19 @@
         const c = snap.val() || {};
         renderChallenges(c);
       });
+      // clicker command
+      onValue(ref(db, "clicker/command"), (snap) => {
+        const cmd = snap.val();
+        if (cmd && cmd.ts > lastClickTs && me === "logan") {
+          lastClickTs = cmd.ts;
+          switch(cmd.type) {
+            case "bed": playClicks(2); break;
+            case "knees": playClicks(3); break;
+            case "puppy": playClicks(5); break;
+          }
+        }
+      });
     }
-
     // SHARED NOTE logic (debounced)
     let noteTimeout;
     openNoteBtn.addEventListener("click", () => {
@@ -621,77 +551,29 @@
     });
     closeNoteBtn.addEventListener("click", () => modalBackdrop.style.display = "none");
     saveNoteBtn.addEventListener("click", saveNote);
-
     textarea.addEventListener("input", () => {
       clearTimeout(noteTimeout);
       noteTimeout = setTimeout(saveNote, 700);
     });
-
     function saveNote() {
       set(ref(db, "sharedNote"), textarea.value);
     }
-
     savePetBtn.addEventListener("click", () => {
       const pet = petNameInput.value.trim();
       update(ref(db, `profiles/${me}`), { petName: pet }).then(() => {
         myPetPreview.textContent = pet;
       });
     });
-
     saveLocalNameBtn.addEventListener("click", () => {
       myDisplayName = localNameInput.value.trim() || (me && me.charAt(0).toUpperCase()+me.slice(1));
       update(ref(db, `profiles/${me}`), { displayName: myDisplayName });
       displayNameEl.textContent = myDisplayName;
       localStorage.setItem("zlDisplayName", myDisplayName);
     });
-
     emotionSelect.addEventListener("change", () => {
       const emo = emotionSelect.value;
       update(ref(db, `profiles/${me}`), { emotion: emo || "" });
     });
-
-    // GALLERY: upload memory image
-    openUploadMemoryBtn.addEventListener("click", async () => {
-      // simple input flow using file picker
-      const f = await filePicker();
-      if (!f) return;
-      const caption = prompt("Add a short caption (optional):", "");
-      const path = `gallery/${me}/${Date.now()}_${f.name}`;
-      const storageRef = sref(storage, path);
-      await uploadBytes(storageRef, f);
-      const url = await getDownloadURL(storageRef);
-      const item = { url, caption: caption || "", author: me, ts: Date.now() };
-      const key = push(ref(db, "gallery")).key;
-      const updateObj = {};
-      updateObj[`gallery/${key}`] = item;
-      update(ref(db), updateObj);
-    });
-
-    async function filePicker() {
-      return new Promise((res) => {
-        const inp = document.createElement("input");
-        inp.type = "file";
-        inp.accept = "image/*";
-        inp.onchange = (e) => res(e.target.files[0]);
-        inp.click();
-      });
-    }
-
-    function renderGallery(items) {
-      galleryGrid.innerHTML = "";
-      const arr = Object.entries(items).sort((a,b)=>b[1].ts - a[1].ts);
-      arr.forEach(([k,v]) => {
-        const img = document.createElement("img");
-        img.src = v.url;
-        img.alt = v.caption || "";
-        img.addEventListener("click", () => {
-          lightboxImg.src = v.url;
-          lightbox.style.display = "flex";
-        });
-        galleryGrid.appendChild(img);
-      });
-    }
-
     // MEMORY BANK: add text memory
     openNewMemoryBtn.addEventListener("click", () => openMemoryModal());
     addMemoryBtn.addEventListener("click", () => openMemoryModal());
@@ -711,7 +593,6 @@
         update(ref(db), updates);
       }
     }
-
     function renderMemories(items) {
       memoriesList.innerHTML = "";
       const arr = Object.entries(items).sort((a,b)=>b[1].ts - a[1].ts);
@@ -741,7 +622,6 @@
         });
       });
     }
-
     // CHAT: send text, image, voice; typing indicator
     sendBtn.addEventListener("click", sendChat);
     chatInput.addEventListener("keydown", (e) => {
@@ -753,7 +633,6 @@
         sendChat();
       }
     });
-
     pickImageBtn.addEventListener("click", () => chatImageInput.click());
     chatImageInput.addEventListener("change", async (e) => {
       const f = e.target.files[0];
@@ -764,7 +643,6 @@
       const url = await getDownloadURL(storageRef);
       postMessage({ type: "image", url });
     });
-
     // Voice recording (MediaRecorder)
     recordBtn.addEventListener("click", async () => {
       if (mediaRecorder && mediaRecorder.state === "recording") return;
@@ -785,16 +663,13 @@
       mediaRecorder.start();
       recIndicator.classList.remove("hidden");
     });
-
     stopRecBtn.addEventListener("click", () => {
       if (mediaRecorder && mediaRecorder.state === "recording") mediaRecorder.stop();
     });
-
     function showTyping(val) {
       update(ref(db, `chat/typing/${me}`), val ? true : null); // set true or null to remove
       if (!val) update(ref(db, `chat/typing/${me}`), null);
     }
-
     async function sendChat() {
       const txt = chatInput.value.trim();
       if (!txt) return;
@@ -802,7 +677,6 @@
       chatInput.value = "";
       showTyping(false);
     }
-
     function postMessage(payload) {
       const data = {
         author: me,
@@ -814,7 +688,6 @@
       updates[`chat/messages/${key}`] = data;
       update(ref(db), updates);
     }
-
     function renderChat(msgs) {
       // msgs is object
       chatWindow.innerHTML = "";
@@ -824,7 +697,6 @@
         wrapper.className = "message " + (v.author === me ? "me" : "them");
         const bubble = document.createElement("div");
         bubble.className = "bubble";
-
         // content
         if (v.type === "image") {
           bubble.innerHTML = `<img class="msg-img" src="${v.url}" alt="image">`;
@@ -837,13 +709,11 @@
         } else {
           bubble.innerText = v.text || "";
         }
-
         wrapper.appendChild(bubble);
         chatWindow.appendChild(wrapper);
       });
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
-
     // QUOTES & CHALLENGES: add/remove
     addQuoteBtn.addEventListener("click", () => {
       const txt = newQuoteInput.value.trim();
@@ -854,7 +724,6 @@
       update(ref(db), updates);
       newQuoteInput.value = "";
     });
-
     addChallengeBtn.addEventListener("click", () => {
       const txt = newChallengeInput.value.trim();
       if (!txt) return;
@@ -864,7 +733,6 @@
       update(ref(db), updates);
       newChallengeInput.value = "";
     });
-
     function renderQuotes(qs) {
       quotesList.innerHTML = "";
       const arr = Object.entries(qs).sort((a,b)=>b[1].ts - a[1].ts);
@@ -894,7 +762,6 @@
         if (confirm("Delete quote?")) remove(ref(db, `quotes/${key}`));
       }));
     }
-
     function renderChallenges(cs) {
       challengesList.innerHTML = "";
       const arr = Object.entries(cs).sort((a,b)=>b[1].ts - a[1].ts);
@@ -923,7 +790,6 @@
         if (confirm("Delete challenge?")) remove(ref(db, `challenges/${key}`));
       }));
     }
-
     // load today's quote/challenge from meta if set, else random fallback from seeded lists
     const seededQuotes = [
       "Love is not what you say, it's what you do.",
@@ -936,7 +802,6 @@
       "Describe your perfect ‘virtual date’ in detail.",
       "Give them a compliment that makes them blush a little."
     ];
-
     function loadQuote() {
       onValue(ref(db, "meta/todayQuote"), (snap) => {
         const val = snap.val();
@@ -949,7 +814,6 @@
         challengeEl.textContent = val ? `${val.text} — ${val.author}` : seededChallenges[Math.floor(Math.random()*seededChallenges.length)];
       });
     }
-
     // initial seed: if no quotes/challenges exist, write defaults (non-destructive)
     (async function seedIfEmpty(){
       onValue(ref(db, "quotes"), (snap) => {
@@ -973,31 +837,42 @@
         }
       }, { onlyOnce: true });
     })();
-
     // Close dropdown-like modals on outside click (for completeness)
     document.addEventListener("click", (e) => {
       if (!e.target.closest(".dropdown")) {
         document.querySelectorAll(".dropdown-list").forEach(list => list.classList.remove("show"));
       }
     });
-
-    // Small safety wrapper for push+update (not required but kept)
-    function pushRef(path) { return push(ref(db, path)).key; }
-
-    // small UI helpers for light UX
-    document.getElementById("openUploadMemoryBtn").addEventListener("click", ()=>{ /* handled earlier */ });
-    document.getElementById("openNewMemoryBtn").addEventListener("click", ()=>{ /* handled earlier */ });
-
+    // Dog clicker sound
+    function playClicks(n, delay = 300) {
+      for (let i = 0; i < n; i++) {
+        setTimeout(() => {
+          const audio = new Audio('https://www.myinstants.com/media/sounds/dog-clicker_IygBqAk.mp3');
+          audio.play();
+        }, i * delay);
+      }
+    }
+    function initClicker() {
+      if (me === "ezekiel") {
+        bedBtn.classList.remove("hidden");
+        kneesBtn.classList.remove("hidden");
+        puppyBtn.classList.remove("hidden");
+        bedBtn.addEventListener("click", () => triggerClick("bed"));
+        kneesBtn.addEventListener("click", () => triggerClick("knees"));
+        puppyBtn.addEventListener("click", () => triggerClick("puppy"));
+      }
+    }
+    function triggerClick(type) {
+      set(ref(db, "clicker/command"), { type, ts: Date.now() });
+    }
     // Kickstart minimal display after short delay
     setTimeout(()=> {
       document.querySelectorAll(".tab[data-tab='dashboard']")[0]?.click();
     }, 400);
-
     // Extra: when unloading, clear typing flag
     window.addEventListener("beforeunload", () => {
       if (me) update(ref(db, `chat/typing/${me}`), null);
     });
-
     // Note: everything uses Firebase's update/set/remove APIs — no local 'update' wrapper to conflict.
   </script>
 </body>
